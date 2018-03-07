@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Aula 07 - Vuejs do jeito ninja</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{ titulo }}</h1>
+
+            <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">Limpar</button>
+            <button class="btn" v-bind:class="btnClassEnviar" v-bind:style="btnStyleEnviar">Enviar</button>
+        </div>
+
+        <script src="vue.js"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    titulo: 'Aula 07 - Vuejs do jeito ninja!',
+                    btnClassLimpar: {
+                        'btn-danger': true,
+                        'btn-sm' : true
+                    },
+                    btnClassEnviar: [
+                        'btn-primary', { 'btn-lg' : true }
+                    ],
+                    btnStyleLimpar: [
+                        { 'font-size' : '50px' },
+                        { 'font-weight' : 'bold' }
+                    ],
+                    btnStyleEnviar: {
+                        'font-size': '10px'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

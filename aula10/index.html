@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 10 - Vuejs do jeito ninja</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        {{ fullName }}
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            
+            data: {
+                titulo: 'Aula 10 - Vuejs do jeito ninja!',
+                firstName: '',
+                lastName: ''
+                // fullName: ''
+            },
+
+            computed: {
+                fullName() {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            },
+
+            watch: {
+               firstName(newName, oldName) {
+                   this.updateUser();                
+               }             
+            },
+
+            methods: {
+                updateUser() {
+                    console.log('Usuário atualizado!');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

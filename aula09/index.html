@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 09 - Vuejs do jeito ninja</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+
+        <ul>
+            <li v-for="usuario in usuarios">
+                {{ usuario.nome | truncate(5) }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Aula 09 - Vuejs do jeito ninja!',
+                usuarios: [
+                    { nome: 'Jon Snow'},
+                    { nome: 'Tyrion Lannister' },
+                    { nome: 'Daenerys Targaryen' } 
+                ]
+            },
+
+            filters: {
+                toUpperCase(str) {
+                    return str.toUpperCase();
+                },
+                truncate(str, length) {
+                    var result = str;
+                    if (result.length > length) {
+                        result = str.substr(0, length) + ' ...';
+                    }
+                    return result;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
